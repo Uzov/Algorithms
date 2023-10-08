@@ -11,7 +11,8 @@ public class HeapSort {
         // Один за другим извлекаем элементы из кучи
         for (int i = array.length - 1; i >= 0; i--) {
             // Перемещаем текущий корень в конец
-            int temp = array[0] ; array[0] = array[i];
+            int temp = array[0] ;
+            array[0] = array[i];
             array[i] = temp;
             // Вызываем процедуру heapify на уменьшенной куче
             heapify (array, i, 0);
@@ -49,25 +50,25 @@ public class HeapSort {
     // Выполнение программы
     public static void main(String[] args)
     {
-        int N = 100000000;
+        int N = 1000000;
         int[] arr = new int[N];
         for(int i=0; i<N; i++){
             arr[i] = (int)-100 + (int) (Math.random() * ((100 - (-100)) + 1));
         }
 
-        //System.out.println("Not sorted array is ");
-        //printArray(arr);
+        // System.out.println("Not sorted array is ");
+        // printArray(arr);
 
         HeapSort ob = new HeapSort();
         Date t1 = new Date();
         ob.sort(arr);
         Date t2 = new Date();
         long elapsedms = t2.getTime() - t1.getTime();
-        long diff = TimeUnit.SECONDS.convert(elapsedms, TimeUnit.MILLISECONDS);
-        System.out.println("Время выполнения, сек: ");
+        long diff = TimeUnit.MILLISECONDS.convert(elapsedms, TimeUnit.MILLISECONDS);
+        System.out.println("Время выполнения, мсек: ");
         System.out.printf("%d%n",diff);
 
-        //System.out.println("Sorted array is ");
-        //printArray(arr);
+        System.out.println("Sorted array is ");
+        printArray(arr);
     }
 }
